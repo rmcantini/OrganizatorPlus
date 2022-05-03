@@ -36,7 +36,6 @@ os.makedirs(NEWFOLDER_5)
 try:
     # selecionar os arquivos que contenham a palavra e mover para a pasta certa
     for file in names:
-
         if 'site' in file:
             new_path = os.path.isfile(shutil.move(
                 f"{path_main}/{file}", NEWFOLDER_1))
