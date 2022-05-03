@@ -4,6 +4,7 @@ import shutil
 import tkinter
 from tkinter.filedialog import askdirectory
 
+
 # intro explanation pop-up
 tkinter.messagebox.showinfo(
     'info', 'Selecione a pasta com os desdobramentos a serem organizados.')
@@ -30,36 +31,51 @@ NEWFOLDER_4 = 'social'
 os.makedirs(NEWFOLDER_4)
 NEWFOLDER_5 = 'vtex'
 os.makedirs(NEWFOLDER_5)
-NEWFOLDER_6 = 'criteo'
-os.makedirs(NEWFOLDER_6)
 
 
-# selecionar os arquivos que contenham a palavra e mover para a pasta certa
-for file in names:
-    if "site" in file:
-        new_path = shutil.move(f"{path_main}/{file}", NEWFOLDER_1)
+try:
+    # selecionar os arquivos que contenham a palavra e mover para a pasta certa
+    for file in names:
 
-    elif "voxus" in file:
-        new_path = shutil.move(f"{path_main}/{file}", NEWFOLDER_2)
+        if 'site' in file:
+            new_path = os.path.isfile(shutil.move(
+                f"{path_main}/{file}", NEWFOLDER_1))
 
-    elif "GDN" in file:
-        new_path = shutil.move(f"{path_main}/{file}", NEWFOLDER_3)
+        elif 'voxus' in file:
+            new_path = os.path.isfile(shutil.move(
+                f"{path_main}/{file}", NEWFOLDER_2))
 
-    elif "vtex" in file:
-        new_path = shutil.move(f"{path_main}/{file}", NEWFOLDER_5)
+        elif 'GDN' in file:
+            new_path = os.path.isfile(shutil.move(
+                f"{path_main}/{file}", NEWFOLDER_3))
 
-    elif "criteo" in file:
-        new_path = shutil.move(f"{path_main}/{file}", NEWFOLDER_6)
+        elif 'vtex' in file:
+            new_path = os.path.isfile(shutil.move(
+                f"{path_main}/{file}", NEWFOLDER_5))
 
-    else:
-        new_path = os.path.isfile(shutil.move(
-            f"{path_main}/{file}", NEWFOLDER_4))
+        elif 'dark' in file:
+            new_path = os.path.isfile(shutil.move(
+                f"{path_main}/{file}", NEWFOLDER_4))
 
-# Success feedback
-tkinter.messagebox.showinfo('info', 'Sucesso Total!')
+        elif 'stories' in file:
+            new_path = os.path.isfile(shutil.move(
+                f"{path_main}/{file}", NEWFOLDER_4))
 
+        elif 'miner' in file:
+            new_path = os.path.isfile(shutil.move(
+                f"{path_main}/{file}", NEWFOLDER_4))
 
-for item in os.listdir(path_main):
-    if os.path.isdir(item):
-        if not os.listdir(item):
-            os.removedirs(os.path.join(path_main, item))
+        else:
+            pass
+
+    for item in os.listdir(path_main):
+        if os.path.isdir(item):
+            if not os.listdir(item):
+                os.removedirs(os.path.join(path_main, item))
+
+    # showinfo('info', 'Sucesso Total!')Success feedback
+    tkinter.messagebox.showinfo('info', 'Sucesso Total!')
+
+except OSError:
+    tkinter.messagebox.showinfo(
+        'info', 'Ocorreu algum problema, verifique se a pasta de arquivos é a correta.')
