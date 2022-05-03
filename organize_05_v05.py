@@ -52,7 +52,8 @@ for file in names:
         new_path = shutil.move(f"{path_main}/{file}", NEWFOLDER_6)
 
     else:
-        new_path = shutil.move(f"{path_main}/{file}", NEWFOLDER_4)
+        new_path = os.path.isfile(shutil.move(
+            f"{path_main}/{file}", NEWFOLDER_4))
 
 # Success feedback
 tkinter.messagebox.showinfo('info', 'Sucesso Total!')
