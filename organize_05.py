@@ -7,7 +7,7 @@ from tkinter.filedialog import askdirectory
 
 # intro explanation pop-up
 tkinter.messagebox.showinfo(
-    'info', 'Selecione a pasta com os desdobramentos a serem organizados.')
+    'info', 'Selecione a pasta com os desdobramentos.')
 
 # asks what directory to work with
 path_main = askdirectory(
