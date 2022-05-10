@@ -1,12 +1,16 @@
 ''' Super file organizer by part of the filename '''
 import os
 import shutil
-import tkinter
+import tkinter as tk
 from tkinter.filedialog import askdirectory
 
 
+# hide root window
+root = tk.Tk()
+root.withdraw()
+
 # intro explanation pop-up
-tkinter.messagebox.showinfo(
+tk.messagebox.showinfo(
     'info', 'Selecione a pasta com os desdobramentos.')
 
 # asks what directory to work with
@@ -73,8 +77,8 @@ try:
                 os.removedirs(os.path.join(path_main, item))
 
     # showinfo('info', 'Sucesso Total!')Success feedback
-    tkinter.messagebox.showinfo('info', 'Sucesso Total!')
+    tk.messagebox.showinfo('info', 'Sucesso Total!')
 
 except OSError:
-    tkinter.messagebox.showinfo(
+    tk.messagebox.showinfo(
         'info', 'Ocorreu algum problema, verifique se a pasta de arquivos é a correta.')
