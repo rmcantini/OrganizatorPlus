@@ -32,6 +32,11 @@ def new_dir(types):
     os.makedirs(types)
 
 
+# loop that works
+for i in file_types:
+    new_dir(i)
+
+
 # need that code that filters by extention
 for site in names:
     each_file = os.path.join(path_main, site)
