@@ -35,8 +35,11 @@ def new_dir(types):
 # loop that works
 for i in file_types:
     new_dir(i)
+   # if i in names:
+    #    new_path = os.path.isfile(
+     #       shutil.move(f"{path_main}/{i}", i))
 
-
+'''
 # need that code that filters by extention
 for site in names:
     each_file = os.path.join(path_main, site)
@@ -49,3 +52,4 @@ for site in names:
 
     else:
         print("erro")
+''''''
